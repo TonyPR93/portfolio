@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+}
+
+:test {
+  /*Etape 1-2 Backgrounds*/
+  --backgrounds: #0d1514; /*Pair with 11, 12*/
+  --backgrounds2: #111c1b;
+
+  /*Etape 3-5 Composant*/
+  --components-bg: #0d2d2a;
+  --components-hv: #023b37;
+  --components-ac: #084843;
+
+  /*Etape 6-8 border*/
+  --border: #145750;
+  --border-hv: #1c6961;
+  --border-ac: #207e73;
+
+  /*Etape 9-10 mise en avant*/
+  --bg-imp: #12a594;
+  --bg-imp-hv: #0eb39e;
+
+  /*Etape 11-12 Text*/
+  --text-lc-2: #03c7a6;
+  --text-lc: #0bd8b6;
+  --text-hc: #adf0dd;
+}
+
+:root {
+  /*Etape 1-2 Backgrounds*/
+  --backgrounds: #0d1514; /*Pair with 11, 12*/
+  --backgrounds2: #111c1b;
+
+  /*Etape 3-5 Composant*/
+  --components-bg: #0d2d2a;
+  --components-hv: #023b37;
+  --components-ac: #084843;
+
+  /*Etape 6-8 border*/
+  --border: #145750;
+  --border-hv: #1c6961;
+  --border-ac: #207e73;
+
+  /*Etape 9-10 mise en avant*/
+  --bg-imp: #12a594;
+  --bg-imp-hv: #0eb39e;
+
+  /*Etape 11-12 Text*/
+  --text-lc: #0bd8b6;
+  --text-hc: #adf0dd;
+  --text-in: black;
+}
+
+[data-theme="light"] {
+  /*Etape 1-2 Backgrounds*/
+  --backgrounds: #fafefd; /*Pair with 11, 12*/
+  --backgrounds2: #f3fbf9;
+
+  /*Etape 3-5 Composant*/
+  --components-bg: #e0f8f3;
+  --components-hv: #ccf3ea;
+  --components-ac: #b8eae0;
+
+  /*Etape 6-8 border*/
+  --border: #a1ded2;
+  --border-hv: #83cdc1;
+  --border-ac: #53b9ab;
+
+  /*Etape 9-10 mise en avant*/
+  --bg-imp: #12a594;
+  --bg-imp-hv: #0d9b8a;
+
+  /*Etape 11-12 Text*/
+  --text-lc: #008573;
+  --text-hc: #0d3d38;
+}
+
+[data-theme="dark"] {
+  /*Etape 1-2 Backgrounds*/
+  --backgrounds: #0d1514; /*Pair with 11, 12*/
+  --backgrounds2: #111c1b;
+
+  /*Etape 3-5 Composant*/
+  --components-bg: #0d2d2a;
+  --components-hv: #023b37;
+  --components-ac: #084843;
+
+  /*Etape 6-8 border*/
+  --border: #145750;
+  --border-hv: #1c6961;
+  --border-ac: #207e73;
+
+  /*Etape 9-10 mise en avant*/
+  --bg-imp: #12a594;
+  --bg-imp-hv: #0eb39e;
+
+  /*Etape 11-12 Text*/
+  --text-lc: #0bd8b6;
+  --text-hc: #adf0dd;
+  --text-in: white;
+}
+/* --bg-color: #0d1514;
+--components-bg: #0d2d2a;
+--bo-button: #1c6961;
+--text-hc: #adf0dd;
+--text-lc: #0bd8b6;
+--text-lc: rgba(11, 216, 182, 0.56); */
+
+/* --bg-color: #f5fdfc;
+--components-bg: #e0f2f0;
+--bo-button: #88bfb8;
+--text-hc: #124038;
+--text-lc: #0a4f45;
+--text-lc: rgba(10, 79, 69, 0.56); */
+* {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,25 @@
+/* Section container */
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #4a5568;
+  color: #ffffff;
+  padding: 2.5rem;
+}
+
+/* Title styling */
+#about h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Paragraph styling */
+#about p {
+  font-size: 1.25rem;
+  max-width: 48rem;
+  text-align: center;
+}

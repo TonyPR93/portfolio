@@ -1,0 +1,82 @@
+/* Styles pour la section "Skills" */
+#skills {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #f7fafc;
+  text-align: center;
+  background-color: var(--backgrounds);
+  border: 1px solid red;
+}
+
+#skills h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-hc);
+}
+
+#skills h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: var(--text-lc);
+}
+
+#skills .skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 1024px;
+
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  border: 1px solid red; */
+}
+
+#skills .skill-card {
+  width: 300px;
+  background-color: var(--components-bg);
+  border: 1px solid transparent;
+  height: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+#skills .skill-card:hover {
+  background-color: var(--components-hv);
+  border: 1px solid var(--border-hv);
+}
+
+.skill-img {
+  width: 64px;
+}
+
+.skill-icon {
+  font-size: 4rem;
+  color: var(--text-hc);
+}
+
+#skills .skill-card h3 {
+  color: var(--text-hc);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+#skills .skill-card .skill-level {
+  color: var(--text-lc);
+}
+#skills .skill-card .skill-location {
+  font-size: 12px;
+  color: var(--text-in);
+}
