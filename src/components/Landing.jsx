@@ -8,29 +8,29 @@ function Landing() {
       <div className="content">
         <motion.div
           className="intro-paragraph"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.1 }}
         >
           <p>Hi there, I'm</p>
         </motion.div>
         <motion.div
           className="header-title"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.2 }}
         >
           <h1>Anthony Panont</h1>
         </motion.div>
         <motion.div
           className="subtitle"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.3 }}
         >
           <p>I'm a curious developer who loves to learn new things</p>
         </motion.div>
-        <motion.div
+        {/* <motion.div
           className="paragraph"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -46,12 +46,12 @@ function Landing() {
             intuitives, et de contribuer à des équipes dynamiques prêtes à
             innover.
           </p>
-        </motion.div>
+        </motion.div> */}
         <motion.div
           className="button-container"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2, delay: 0.5 }}
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.4 }}
         >
           <a href="#projects" className="button">
             Github

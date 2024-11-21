@@ -6,6 +6,8 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Landing from "./components/Landing";
+import SeparatorBorder from "./components/separator-border";
+
 import "./App.css";
 
 function App() {
@@ -13,10 +15,15 @@ function App() {
     <div className="App">
       <Header />
       <Landing />
+      <SeparatorBorder />
       <About />
+      <SeparatorBorder />
       <Projects />
+      <SeparatorBorder />
       <Skills />
+      <SeparatorBorder />
       <Contact />
+      <SeparatorBorder />
       <Footer />
     </div>
   );

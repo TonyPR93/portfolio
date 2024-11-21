@@ -1,13 +1,12 @@
 /* Section container */
 #about {
-  min-height: 100vh;
+  min-height: 40vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #4a5568;
+  background-color: var(--backgrounds);
   color: #ffffff;
-  padding: 2.5rem;
 }
 
 /* Title styling */
@@ -15,11 +14,19 @@
   font-size: 1.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  color: var(--text-hc);
 }
 
 /* Paragraph styling */
 #about p {
-  font-size: 1.25rem;
-  max-width: 48rem;
-  text-align: center;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  color: var(--text-in);
+}
+
+.color {
+  color: var(--text-lc);
+  font-weight: 500;
+  font-style: italic;
 }

@@ -1,0 +1,36 @@
+.separatorpage {
+  height: 1px;
+  background-color: var(--backgrounds);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separatorIn {
+  height: 1px;
+  width: 50%;
+  background-color: var(--text-hc);
+}
+
+.separatorNd {
+  height: 1px;
+  width: 1%;
+  background-color: transparent;
+}
+
+.separatorNd2 {
+  height: 1px;
+  width: 1%;
+  background-color: var(--text-hc);
+}
+
+.separatorLs {
+  height: 1px;
+  width: 3px;
+  background-color: transparent;
+}
+.separatorLs2 {
+  height: 1px;
+  width: 3px;
+  background-color: var(--text-hc);
+}
