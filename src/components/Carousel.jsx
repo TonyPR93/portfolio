@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     if (!autoPlay) return;
@@ -31,39 +32,97 @@ function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
     setCurrentIndex(index);
   };
 
-  return (
-    <div className="carousel">
-      <button className="carousel-button prev" onClick={prevImage}>
-        ◀
-      </button>
-      <div className="carousel-window">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={images[currentIndex]}
-            src={images[currentIndex]}
-            alt={`Slide ${currentIndex}`}
-            className="carousel-image"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-          />
-        </AnimatePresence>
-      </div>
-      <button className="carousel-button next" onClick={nextImage}>
-        ▶
-      </button>
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
 
-      <div className="carousel-dots">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`dot ${index === currentIndex ? "active" : ""}`}
-            onClick={() => goToImage(index)}
-          />
-        ))}
+  return (
+    <>
+      <div className="carousel">
+        <button className="carousel-button prev" onClick={prevImage}>
+          ◀
+        </button>
+        <div className="carousel-window">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={images[currentIndex]}
+              src={images[currentIndex]}
+              alt={`Slide ${currentIndex}`}
+              className="carousel-image"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+            />
+          </AnimatePresence>
+        </div>
+        <button className="carousel-button next" onClick={nextImage}>
+          ▶
+        </button>
+
+        <div className="carousel-dots">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === currentIndex ? "active" : ""}`}
+              onClick={() => goToImage(index)}
+            />
+          ))}
+        </div>
+
+        <button className="fullscreen-button" onClick={toggleFullscreen}>
+          Fullscreen
+        </button>
       </div>
-    </div>
+
+      {isFullscreen && (
+        <div className="modal-overlay" onClick={toggleFullscreen}>
+          <button className="close-buttonFullScreen" onClick={toggleFullscreen}>
+            ✖
+          </button>
+          <div
+            className="fullscreen-carousel"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="carousel-button prev fullscreen-prev"
+              onClick={prevImage}
+            >
+              ◀
+            </button>
+            <div className="carousel-window fullscreen-window">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={images[currentIndex]}
+                  src={images[currentIndex]}
+                  alt={`Slide ${currentIndex}`}
+                  className="carousel-image"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+            </div>
+            <button
+              className="carousel-button next fullscreen-next"
+              onClick={nextImage}
+            >
+              ▶
+            </button>
+          </div>
+          <div className="carousel-dots fullscreen-dots">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                className={`dot ${index === currentIndex ? "active" : ""}`}
+                onClick={() => goToImage(index)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
