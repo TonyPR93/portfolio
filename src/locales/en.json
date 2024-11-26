@@ -6,7 +6,9 @@
     "links": {
       "github": "Github",
       "freecodecamp": "freeCodeCamp",
-      "linkedin": "LinkedIn"
+      "linkedin": "LinkedIn",
+      "codepen": "CodePen",
+      "download": "Download CV"
     }
   },
   "header": {

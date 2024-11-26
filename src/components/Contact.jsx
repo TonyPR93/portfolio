@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 function Contact() {
   const { t } = useTranslation();
-  const formRef = useRef(); // Référence pour le formulaire
+  const formRef = useRef();
   const [submitText, setSubmitText] = useState(t("contact.submitText"));
   const [isFocused, setIsFocused] = useState({
     from_name: false,
@@ -32,10 +32,9 @@ function Contact() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault();
     setSubmitText(t("contact.sending"));
 
-    // Envoyer les données via EmailJS
     emailjs.sendForm(serviceId, templateId, formRef.current).then(
       () => {
         setSubmitText(t("contact.success"));
@@ -47,14 +46,13 @@ function Contact() {
       },
     );
   };
-  // Clés EmailJS
+
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  console.log(publicKey, serviceId, templateId);
-  // Initialiser EmailJS
+
   emailjs.init(publicKey);
-  console.log(t("contact.title"));
+
   return (
     <section id="contact">
       <div className="inner">
@@ -146,6 +144,7 @@ function Contact() {
             name="to_name"
             value="Anthony"
             hidden
+            readOnly
             required
           />
           <div className="subBtn">

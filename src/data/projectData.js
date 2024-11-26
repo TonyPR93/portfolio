@@ -1,7 +1,8 @@
 import reactImage from "/images/CharlieInvoice.png";
-import post from "/images/postman.png";
+
 import images from "../assets/imagesCI";
 import imagesPid from "../assets/imagesPID";
+import imagesCK from "../assets/imagesCK";
 
 import { faSchool } from "@fortawesome/free-solid-svg-icons";
 import { faRocketchat, faJava } from "@fortawesome/free-brands-svg-icons";
@@ -34,7 +35,7 @@ const projects = [
             fr: `
                 <div class="container">
                     <div class="sectionStack">
-                        <p class='subtitleModal'>Front-end</p>
+                        <p class='subtitle'>Front-end</p>
                         <ul class="tech-list">
                             <li class="tech-item">Bootstrap</li>
                             <li class="tech-item">jQuery</li>
@@ -42,7 +43,7 @@ const projects = [
                         </ul>
                     </div>
                     <div class="sectionStack">
-                        <p class='subtitleModal'>Back-end</p>
+                        <p class='subtitle'>Back-end</p>
                         <ul class="tech-list">
                             <li class="tech-item">Spring Boot</li>
                             <li class="tech-item">Hibernate/JPA</li>
@@ -56,7 +57,7 @@ const projects = [
             en: `
                 <div class="container">
                     <div class="sectionStack">
-                        <p class='subtitleModal'>Front-end</p>
+                        <p class='subtitle'>Front-end</p>
                         <ul class="tech-list">
                             <li class="tech-item">Bootstrap</li>
                             <li class="tech-item">jQuery</li>
@@ -64,7 +65,7 @@ const projects = [
                         </ul>
                     </div>
                     <div class="sectionStack">
-                        <p class='subtitleModal'>Back-end</p>
+                        <p class='subtitle'>Back-end</p>
                         <ul class="tech-list">
                             <li class="tech-item">Spring Boot</li>
                             <li class="tech-item">Hibernate/JPA</li>
@@ -156,28 +157,28 @@ const projects = [
     {
         id: 3,
         name: {
-            fr: "IT Logger",
-            en: "IT Logger"
+            fr: "Contact Keeper",
+            en: "Contact Keeper"
         },
         image: null,
         icon: faRocketchat,
-        images: images,
+        images: imagesCK,
         description: {
-            fr: "Application pour suivre les incidents informatiques.",
-            en: "Application for tracking IT incidents."
+            fr: "Application pour gérer et organiser ses contacts.",
+            en: "Application for managing and organizing contacts."
         },
         fullDescription: {
             fr: `
-                <p class='expModal'>IT Logger est une application dédiée à la gestion et au suivi des incidents informatiques au sein d'une organisation.</p>
-                <p class='expModal'>Les utilisateurs peuvent signaler des incidents, suivre leur statut et recevoir des notifications lorsque des problèmes sont résolus.</p>
-                <p class='expModal'>Avec une interface utilisateur conviviale, IT Logger permet aux équipes IT de gérer les tickets de manière efficace, améliorant ainsi la satisfaction des utilisateurs.</p>
-                <p class='expModal'>L'application est construite sur la pile MERN, offrant une expérience fluide tant pour les utilisateurs que pour les administrateurs.</p>
+                <p class='expModal'>Contact Keeper est une application dédiée à la gestion et à l'organisation des contacts personnels ou professionnels.</p>
+                <p class='expModal'>Les utilisateurs peuvent ajouter, mettre à jour, rechercher et supprimer des contacts, le tout dans une interface simple et intuitive.</p>
+                <p class='expModal'>Conçue avec une interface conviviale, cette application facilite la gestion de vos relations et informations importantes.</p>
+                <p class='expModal'>L'application repose sur la pile MERN, offrant une expérience fluide et réactive pour tous les utilisateurs.</p>
             `,
             en: `
-                <p class='expModal'>IT Logger is an application dedicated to managing and tracking IT incidents within an organization.</p>
-                <p class='expModal'>Users can report incidents, track their status, and receive notifications when issues are resolved.</p>
-                <p class='expModal'>With a user-friendly interface, IT Logger helps IT teams manage tickets efficiently, thus improving user satisfaction.</p>
-                <p class='expModal'>The app is built on the MERN stack, providing a smooth experience for both users and administrators.</p>
+                <p class='expModal'>Contact Keeper is an application designed to help manage and organize personal or professional contacts.</p>
+                <p class='expModal'>Users can add, update, search, and delete contacts, all within a simple and intuitive interface.</p>
+                <p class='expModal'>With a user-friendly design, this app makes it easy to manage your relationships and important information.</p>
+                <p class='expModal'>The application is built on the MERN stack, providing a seamless and responsive experience for all users.</p>
             `
         },
         fullStack: {

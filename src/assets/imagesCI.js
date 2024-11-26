@@ -9,8 +9,6 @@ const images = [
     '/images/charlieInvoice/7home3.png',
     '/images/charlieInvoice/8allFact.png',
     '/images/charlieInvoice/9folder.png',
-    '/images/charlieInvoice/10folder2.png',
-    '/images/charlieInvoice/11folder3.png',
   ];
   
   export default images;

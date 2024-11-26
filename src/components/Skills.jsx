@@ -1,9 +1,12 @@
-import { React, useRef } from "react";
+import { React, useRef, useState, useEffect } from "react";
 import "../css/skills.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import springBoot from "/images/springboot.png";
+import springBootdark from "/images/springbootdark.png";
 import vsc from "/images/vsc.png";
+import vscdark from "/images/vscdark.png";
 import postman from "/images/postman.png";
+import postmandark from "/images/postmandark.png";
 import { motion, useInView } from "framer-motion";
 import {
   faJava,
@@ -16,11 +19,31 @@ import { useTranslation } from "react-i18next";
 
 function Skills() {
   const { t } = useTranslation();
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.querySelector("body").getAttribute("data-theme") === "dark",
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const currentTheme = document
+        .querySelector("body")
+        .getAttribute("data-theme");
+      setIsDarkMode(currentTheme === "dark");
+    });
+
+    observer.observe(document.querySelector("body"), {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const skills = [
     {
       id: 1,
-      image: null,
+      imageLight: null,
+      imageDark: null,
       icon: faJava,
       nom: "Java",
       niveau: "Intermediate",
@@ -28,7 +51,8 @@ function Skills() {
     },
     {
       id: 2,
-      image: springBoot,
+      imageLight: springBoot,
+      imageDark: springBootdark,
       icon: null,
       nom: "SpringBoot",
       niveau: "Intermediate",
@@ -36,7 +60,8 @@ function Skills() {
     },
     {
       id: 3,
-      image: null,
+      imageLight: null,
+      imageDark: null,
       icon: faReact,
       nom: "React",
       niveau: "Intermediate",
@@ -44,7 +69,8 @@ function Skills() {
     },
     {
       id: 4,
-      image: null,
+      imageLight: null,
+      imageDark: null,
       icon: faNodeJs,
       nom: "NodeJS",
       niveau: "Intermediate",
@@ -52,7 +78,8 @@ function Skills() {
     },
     {
       id: 5,
-      image: null,
+      imageLight: null,
+      imageDark: null,
       icon: faDocker,
       nom: "Docker",
       niveau: "Beginner",
@@ -63,7 +90,8 @@ function Skills() {
   const tools = [
     {
       id: 1,
-      image: vsc,
+      imageLight: vsc,
+      imageDark: vscdark,
       icon: null,
       nom: "VSC",
       niveau: "Intermediate",
@@ -71,7 +99,8 @@ function Skills() {
     },
     {
       id: 2,
-      image: null,
+      imageLight: null,
+      imageDark: null,
       icon: faGit,
       nom: "Git",
       niveau: "Intermediate",
@@ -79,7 +108,8 @@ function Skills() {
     },
     {
       id: 3,
-      image: postman,
+      imageLight: postman,
+      imageDark: postmandark,
       icon: null,
       nom: "Postman",
       niveau: "Intermediate",
@@ -90,6 +120,7 @@ function Skills() {
   const skillRefs = skills.map(() => useRef(null));
   const toolRefs = tools.map(() => useRef(null));
 
+  console.log(isDarkMode);
   return (
     <section id="skills">
       <h2>{t("skills.title")}</h2>
@@ -107,14 +138,14 @@ function Skills() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.2,
-                  delay: index * 0.1, // Décalage progressif pour chaque élément
+                  delay: index * 0.1,
                 }}
                 className="skill-card"
               >
-                {skill.image ? (
+                {skill.imageLight || skill.imageDark ? (
                   <img
                     className="skill-img"
-                    src={skill.image}
+                    src={isDarkMode ? skill.imageLight : skill.imageDark}
                     alt={skill.nom}
                   />
                 ) : (
@@ -153,8 +184,12 @@ function Skills() {
                 }}
                 className="skill-card"
               >
-                {tool.image ? (
-                  <img className="skill-img" src={tool.image} alt={tool.nom} />
+                {tool.imageLight || tool.imageDark ? (
+                  <img
+                    className="skill-img"
+                    src={isDarkMode ? tool.imageLight : tool.imageDark}
+                    alt={tool.nom}
+                  />
                 ) : (
                   <FontAwesomeIcon icon={tool.icon} className="skill-icon" />
                 )}

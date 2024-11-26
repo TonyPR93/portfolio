@@ -60,6 +60,23 @@
   justify-content: space-evenly;
 }
 
+.project-stack {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-item {
+  color: var(--text-hc);
+  padding: 0.75rem 1.5rem;
+  margin: 0px 5px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  text-decoration: none;
+}
+
 .project-content h3 {
   font-weight: 600;
   font-size: 1.25rem;
@@ -77,7 +94,6 @@
   border-radius: 0.5rem;
   margin-left: 1.5rem;
   object-fit: contain;
-  /* border: 1px solid var(--border); */
 }
 
 .project-image-s,
@@ -118,7 +134,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: auto; /* Ajouter un défilement vertical */
+  overflow-y: auto;
 }
 
 .modal-content {
@@ -160,7 +176,6 @@
   transform: translateX(-50%);
 }
 .containerStcImg {
-  /* border: 1px solid rebeccapurple; */
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -168,10 +183,8 @@
 }
 .caroussel {
   width: 40%;
-  /* border: 1px solid red; */
 }
 .caroussel div {
-  /* border: 1px solid yellow; */
   height: 85%;
   display: flex;
   align-items: center;
@@ -181,7 +194,6 @@
 
 .caroussel img {
   height: 100%;
-  /* border: 1px solid green; */
 }
 .textDescModal {
   color: var(--text-in);
@@ -198,7 +210,6 @@
   color: var(--text-in);
 }
 .subtitleModal {
-  /* margin-top: 1rem; */
   font-size: 1.125rem;
   text-decoration: underline;
   color: var(--text-hc);
@@ -234,8 +245,6 @@
   color: var(--text-hc);
 }
 
-.close-button:hover {
-}
 @media (max-width: 767px) {
   #projects {
     justify-content: center;
@@ -268,6 +277,11 @@
   }
   .project-stack {
     font-size: 13px;
+    width: 100%;
+  }
+
+  .stack-item {
+    padding: 0.25rem 0.5rem;
   }
   .project-txt p {
     font-size: 13px;

@@ -24,7 +24,7 @@ function Projects() {
       <div className="projects-container">
         {projects.map((project, index) => {
           const ref = React.useRef(null);
-          const inView = useInView(ref, { margin: "-50px" }); // démarre l'animation lorsque 50px sont visibles
+          const inView = useInView(ref, { margin: "-50px" });
 
           return (
             <motion.div
@@ -33,7 +33,7 @@ function Projects() {
               className="project-card"
               onClick={() => handleProjectClick(project)}
               initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}} // Lance l'animation uniquement quand inView est true
+              animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.2 }}
               whileHover={{ scale: 1.05 }}
             >

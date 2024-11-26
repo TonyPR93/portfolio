@@ -13,7 +13,9 @@
     "links": {
       "github": "Github",
       "freecodecamp": "freeCodeCamp",
-      "linkedin": "LinkedIn"
+      "linkedin": "LinkedIn",
+      "codepen": "CodePen",
+      "download": "Télécharger mon CV"
     }
   },
   "about": {

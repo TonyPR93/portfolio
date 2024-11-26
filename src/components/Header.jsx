@@ -42,6 +42,44 @@ function Header() {
             <li>
               <a href="#contact">{t("header.contact")}</a>
             </li>
+            <li className="flexli">
+              <label className="switchBurger">
+                <input type="checkbox" onChange={switchTheme} />
+                <span className="slider round"></span>
+              </label>
+              {/**2nd */}
+              <div
+                className="language-switcherBurger"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <button className="btnlng">{t("header.language")} ▼</button>
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                      className="dropdown-menu"
+                    >
+                      <button
+                        className="btnlng"
+                        onClick={() => changeLanguage("en")}
+                      >
+                        EN
+                      </button>
+                      <button
+                        className="btnlng"
+                        onClick={() => changeLanguage("fr")}
+                      >
+                        FR
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </li>
           </ul>
 
           <div
@@ -49,7 +87,7 @@ function Header() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <button>{t("header.language")} ▼</button>
+            <button className="btnlng">{t("header.language")} ▼</button>
             <AnimatePresence>
               {isHovered && (
                 <motion.div
@@ -59,8 +97,18 @@ function Header() {
                   transition={{ duration: 0.3 }}
                   className="dropdown-menu"
                 >
-                  <button onClick={() => changeLanguage("en")}>EN</button>
-                  <button onClick={() => changeLanguage("fr")}>FR</button>
+                  <button
+                    className="btnlng"
+                    onClick={() => changeLanguage("en")}
+                  >
+                    EN
+                  </button>
+                  <button
+                    className="btnlng"
+                    onClick={() => changeLanguage("fr")}
+                  >
+                    FR
+                  </button>
                 </motion.div>
               )}
             </AnimatePresence>

@@ -14,6 +14,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 80vh;
+  justify-content: space-evenly;
 }
 /* Title styling */
 #contact h2 {
@@ -124,5 +126,8 @@ input:-webkit-autofill:focus {
 @media (max-width: 767px) {
   #contact form {
     width: 80%;
+  }
+  #contact h2 {
+    margin-bottom: 3rem;
   }
 }
