@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../css/projects.css";
 import projects from "../data/projectData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import Carousel from "./Carousel";
+import { useTranslation } from "react-i18next";
 
 function Projects() {
+  const { t, i18n } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(null);
 
   const handleProjectClick = (project) => {
@@ -16,16 +18,13 @@ function Projects() {
     setSelectedProject(null);
   };
 
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" }); // démarre l'animation lorsque 50px sont visibles
-
   return (
     <section id="projects">
-      <h2>Mes Projets</h2>
+      <h2 className="titleIntro">{t("projects.title")}</h2>
       <div className="projects-container">
         {projects.map((project, index) => {
-          const ref = useRef(null);
-          const inView = useInView(ref, { margin: "-50px" });
+          const ref = React.useRef(null);
+          const inView = useInView(ref, { margin: "-50px" }); // démarre l'animation lorsque 50px sont visibles
 
           return (
             <motion.div
@@ -36,14 +35,12 @@ function Projects() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
               animate={inView ? { opacity: 1, x: 0 } : {}} // Lance l'animation uniquement quand inView est true
               transition={{ duration: 0.2 }}
-              whileHover={{
-                scale: 1.05,
-              }}
+              whileHover={{ scale: 1.05 }}
             >
               <div className="project-content">
                 <div className="project-txt">
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
+                  <h3>{project.name[i18n.language]}</h3>
+                  <p>{project.description[i18n.language]}</p>
                   <div className="project-stack">
                     {project.stack.map((tech) => (
                       <span className="stack-item" key={tech}>
@@ -57,7 +54,7 @@ function Projects() {
                 {project.image ? (
                   <img
                     src={project.image}
-                    alt={project.name}
+                    alt={project.name[i18n.language]}
                     className="project-image-s"
                   />
                 ) : (
@@ -69,15 +66,34 @@ function Projects() {
         })}
       </div>
 
-      {/* Modal pour afficher les détails du projet */}
+      {/* Modal */}
       {selectedProject && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h3>{selectedProject.name}</h3>
-            <p>{selectedProject.description}</p>
-            <button className="close-button" onClick={closeModal}>
-              Fermer
-            </button>
+            <div className="modal-header">
+              <h3 className="modal-title">
+                {selectedProject.name[i18n.language]}
+              </h3>
+              <button className="close-button" onClick={closeModal}>
+                X
+              </button>
+            </div>
+
+            <div
+              dangerouslySetInnerHTML={{
+                __html: selectedProject.fullDescription[i18n.language],
+              }}
+            />
+            <div className="containerStcImg">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: selectedProject.fullStack[i18n.language],
+                }}
+              />
+              {selectedProject.images && (
+                <Carousel images={selectedProject.images} />
+              )}
+            </div>
           </div>
         </div>
       )}

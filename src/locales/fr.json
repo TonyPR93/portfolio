@@ -1,0 +1,79 @@
+{
+  "header": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact",
+    "language": "Francais"
+  },
+  "landing": {
+    "intro": "Bonjour, je suis",
+    "name": "Anthony Panont",
+    "description": "Je suis un développeur curieux qui aime apprendre de nouvelles choses",
+    "links": {
+      "github": "Github",
+      "freecodecamp": "freeCodeCamp",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "about": {
+    "title": "À propos de moi",
+    "greeting": "Salut !",
+    "intro": "Moi, c'est Anthony, un développeur récemment diplômé de l'ISFCE, prêt à relever de nouveaux défis. Curieux de nature, j'aime explorer tous les aspects du développement, aussi bien en ",
+    "frontend": "front-end",
+    "and": "qu'en",
+    "backend": "back-end",
+    "selfLearningStart": "En plus de mes études, j'ai enrichi mes compétences en suivant ",
+    "many": "de nombreux",
+    "selfLearningEnd": " cours en ligne, développant ainsi une approche autodidacte qui me permet d'apprendre en continu",
+    "eagerToLearn": "Toujours à la recherche de nouvelles connaissances et d'occasions de grandir, je suis enthousiaste à l'idée de rejoindre une équipe où je pourrai apporter ma passion pour le développement et",
+    "thirstForKnowledge": "ma soif d'apprendre"
+  },
+  "skills": {
+    "title": "Mes Compétences",
+    "frontendBackend": "Front-end / Back-end",
+    "toolstitle": "Outils",
+    "skills": {
+      "Java": "Java",
+      "SpringBoot": "SpringBoot",
+      "React": "React",
+      "NodeJS": "NodeJS",
+      "Docker": "Docker"
+    },
+    "tools": {
+      "VSC": "Visual Studio Code",
+      "Git": "Git",
+      "Postman": "Postman"
+    },
+    "level": {
+      "Intermediate": "Intermédiaire",
+      "Beginner": "Débutant"
+    },
+    "location": {
+      "ISFCE": "ISFCE",
+      "freeCodeCamp": "freeCodeCamp",
+      "Udemy": "Udemy",
+      "Internship": "Stage"
+    }
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "submitText": "Envoyer",
+    "sending": "En cours...",
+    "success": "Message envoyé, merci !",
+    "error": "Erreur !",
+    "name": "Nom",
+    "email": "E-mail",
+    "message": "Message"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "stack": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "nodejs": "Node.js"
+    }
+  }
+}

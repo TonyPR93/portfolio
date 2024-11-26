@@ -12,14 +12,18 @@ import {
   faDocker,
   faGit,
 } from "@fortawesome/free-brands-svg-icons";
+import { useTranslation } from "react-i18next";
+
 function Skills() {
+  const { t } = useTranslation();
+
   const skills = [
     {
       id: 1,
       image: null,
       icon: faJava,
       nom: "Java",
-      niveau: "Intermediaire",
+      niveau: "Intermediate",
       localisation: ["ISFCE"],
     },
     {
@@ -27,7 +31,7 @@ function Skills() {
       image: springBoot,
       icon: null,
       nom: "SpringBoot",
-      niveau: "Intermediaire",
+      niveau: "Intermediate",
       localisation: ["ISFCE"],
     },
     {
@@ -35,7 +39,7 @@ function Skills() {
       image: null,
       icon: faReact,
       nom: "React",
-      niveau: "Intermediaire",
+      niveau: "Intermediate",
       localisation: ["freeCodeCamp", "Udemy"],
     },
     {
@@ -43,7 +47,7 @@ function Skills() {
       image: null,
       icon: faNodeJs,
       nom: "NodeJS",
-      niveau: "Intermediaire",
+      niveau: "Intermediate",
       localisation: ["Udemy"],
     },
     {
@@ -51,8 +55,8 @@ function Skills() {
       image: null,
       icon: faDocker,
       nom: "Docker",
-      niveau: "Débutant",
-      localisation: ["Personal", "Internship"],
+      niveau: "Beginner",
+      localisation: ["Internship"],
     },
   ];
 
@@ -61,35 +65,36 @@ function Skills() {
       id: 1,
       image: vsc,
       icon: null,
-      nom: "Visual Studio Code",
-      niveau: "Intermediaire",
-      localisation: ["ISFCE", "Personal"],
+      nom: "VSC",
+      niveau: "Intermediate",
+      localisation: ["ISFCE"],
     },
     {
       id: 2,
       image: null,
       icon: faGit,
       nom: "Git",
-      niveau: "Intermediaire",
-      localisation: ["ISFCE", "Internship", "Personal"],
+      niveau: "Intermediate",
+      localisation: ["ISFCE", "Internship"],
     },
     {
       id: 3,
       image: postman,
       icon: null,
       nom: "Postman",
-      niveau: "Intermediaire",
+      niveau: "Intermediate",
       localisation: ["freeCodeCamp", "Udemy", "ISFCE"],
     },
   ];
 
   const skillRefs = skills.map(() => useRef(null));
   const toolRefs = tools.map(() => useRef(null));
+
   return (
     <section id="skills">
-      <h2>Mes Compétences</h2>
+      <h2>{t("skills.title")}</h2>
       <div className="container-skills">
-        <h3>Front-end / Back-end</h3>
+        <h3>{t("skills.frontendBackend")}</h3>
         <div className="skills-grid">
           {skills.map((skill, index) => {
             const isInView = useInView(skillRefs[index]);
@@ -115,10 +120,14 @@ function Skills() {
                 ) : (
                   <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
                 )}
-                <h3>{skill.nom}</h3>
-                <p className="skill-level">{skill.niveau}</p>
+                <h3>{t(`skills.skills.${skill.nom}`)}</h3>
+                <p className="skill-level">
+                  {t(`skills.level.${skill.niveau}`)}
+                </p>
                 <p className="skill-location">
-                  {skill.localisation.join(", ")}
+                  {skill.localisation
+                    .map((loc) => t(`skills.location.${loc}`))
+                    .join(", ")}
                 </p>
               </motion.div>
             );
@@ -127,7 +136,7 @@ function Skills() {
       </div>
 
       <div className="container-skills">
-        <h3>Tools</h3>
+        <h3>{t("skills.toolstitle")}</h3>
         <div className="skills-grid">
           {tools.map((tool, index) => {
             const isInView = useInView(toolRefs[index], { triggerOnce: true });
@@ -149,9 +158,15 @@ function Skills() {
                 ) : (
                   <FontAwesomeIcon icon={tool.icon} className="skill-icon" />
                 )}
-                <h3>{tool.nom}</h3>
-                <p className="skill-level">{tool.niveau}</p>
-                <p className="skill-location">{tool.localisation.join(", ")}</p>
+                <h3>{t(`skills.tools.${tool.nom}`)}</h3>
+                <p className="skill-level">
+                  {t(`skills.level.${tool.niveau}`)}
+                </p>
+                <p className="skill-location">
+                  {tool.localisation
+                    .map((loc) => t(`skills.location.${loc}`))
+                    .join(", ")}
+                </p>
               </motion.div>
             );
           })}

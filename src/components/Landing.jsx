@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "../css/Landing.css";
 
 function Landing() {
+  const { t } = useTranslation();
+
   return (
     <section id="landing">
       <div className="content">
@@ -12,7 +15,7 @@ function Landing() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.1 }}
         >
-          <p>Hi there, I'm</p>
+          <p>{t("landing.intro")}</p>
         </motion.div>
         <motion.div
           className="header-title"
@@ -20,7 +23,7 @@ function Landing() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.2 }}
         >
-          <h1>Anthony Panont</h1>
+          <h1>{t("landing.name")}</h1>
         </motion.div>
         <motion.div
           className="subtitle"
@@ -28,25 +31,8 @@ function Landing() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.3 }}
         >
-          <p>I'm a curious developer who loves to learn new things</p>
+          <p>{t("landing.description")}</p>
         </motion.div>
-        {/* <motion.div
-          className="paragraph"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2, delay: 0.4 }}
-        >
-          <p>
-            Bienvenue sur mon portfolio ! En tant que développeur passionné et
-            rigoureux, j'adore relever des défis et apprendre de nouvelles
-            techniques pour m'améliorer.
-            <br /> Découvrez ici mes projets, qui illustrent mon parcours et mes
-            compétences.
-            <br /> Mon ambition est de créer des solutions pratiques et
-            intuitives, et de contribuer à des équipes dynamiques prêtes à
-            innover.
-          </p>
-        </motion.div> */}
         <motion.div
           className="button-container"
           initial={{ opacity: 0, y: -50 }}
@@ -54,13 +40,13 @@ function Landing() {
           transition={{ duration: 0.2, delay: 0.4 }}
         >
           <a href="#projects" className="button">
-            Github
+            {t("landing.links.github")}
           </a>
           <a href="#projects" className="button">
-            freeCodeCamp
+            {t("landing.links.freecodecamp")}
           </a>
           <a href="#projects" className="button">
-            LinkedIn
+            {t("landing.links.linkedin")}
           </a>
         </motion.div>
       </div>

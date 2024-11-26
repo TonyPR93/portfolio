@@ -2,10 +2,12 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import "../css/contact.css";
+import { useTranslation } from "react-i18next";
 
 function Contact() {
+  const { t } = useTranslation();
   const formRef = useRef(); // Référence pour le formulaire
-  const [submitText, setSubmitText] = useState("Envoyer");
+  const [submitText, setSubmitText] = useState(t("contact.submitText"));
   const [isFocused, setIsFocused] = useState({
     from_name: false,
     email: false,
@@ -31,17 +33,17 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Empêche le rechargement de la page
-    setSubmitText("En cours...");
+    setSubmitText(t("contact.sending"));
 
     // Envoyer les données via EmailJS
     emailjs.sendForm(serviceId, templateId, formRef.current).then(
       () => {
-        setSubmitText("Message envoyé, merci !");
+        setSubmitText(t("contact.success"));
         formRef.current.reset();
       },
       (error) => {
         console.error("Erreur :", error);
-        setSubmitText("Erreur !");
+        setSubmitText(t("contact.error"));
       },
     );
   };
@@ -52,10 +54,11 @@ function Contact() {
   console.log(publicKey, serviceId, templateId);
   // Initialiser EmailJS
   emailjs.init(publicKey);
+  console.log(t("contact.title"));
   return (
     <section id="contact">
       <div className="inner">
-        <h2>Contactez-moi</h2>
+        <h2>{t("contact.title")}</h2>
         <form ref={formRef} onSubmit={handleSubmit}>
           <label className="form-group">
             <motion.input
@@ -75,7 +78,7 @@ function Contact() {
               }}
               transition={{ duration: 0.2 }}
             >
-              Nom
+              {t("contact.name")}
             </motion.span>
             <motion.span
               className="border"
@@ -105,7 +108,7 @@ function Contact() {
               }}
               transition={{ duration: 0.2 }}
             >
-              E-mail
+              {t("contact.email")}
             </motion.span>
             <motion.span
               className="border"
@@ -134,7 +137,7 @@ function Contact() {
               }}
               transition={{ duration: 0.2 }}
             >
-              Message
+              {t("contact.message")}
             </motion.span>
           </label>
           <input

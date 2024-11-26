@@ -63,7 +63,6 @@ textarea.form-control {
   caret-color: var(--text-lc);
 }
 
-/* Garde la structure de votre label, mais vous pouvez supprimer les transitions */
 .form-group span {
   font-size: 15px;
   color: var(--text-lc);
@@ -82,12 +81,12 @@ textarea.form-control {
   background: var(--border-ac);
 }
 .form-control:focus {
-  outline: none; /* Supprimer l'outline par défaut */
+  outline: none;
 }
 
 .subBtn {
   display: flex;
-  justify-content: flex-end; /* Aligne les éléments à droite */
+  justify-content: flex-end;
 }
 
 button {
@@ -108,17 +107,22 @@ button:hover {
 }
 
 input:-webkit-autofill {
-  background-color: var(--backgrounds) !important; /* Couleur de fond */
-  color: var(--text-hc) !important; /* Couleur du texte */
-  -webkit-text-fill-color: var(--text-hc) !important; /* Texte personnalisé */
+  background-color: var(--backgrounds) !important;
+  color: var(--text-hc) !important;
+  -webkit-text-fill-color: var(--text-hc) !important;
 }
 
 input:-webkit-autofill::first-line {
-  font-family: inherit; /* Garde la cohérence de la police */
+  font-family: inherit;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
+}
+@media (max-width: 767px) {
+  #contact form {
+    width: 80%;
+  }
 }

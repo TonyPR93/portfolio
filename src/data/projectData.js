@@ -1,110 +1,225 @@
 import reactImage from "/images/CharlieInvoice.png";
+import post from "/images/postman.png";
+import images from "../assets/imagesCI";
+import imagesPid from "../assets/imagesPID";
+
 import { faSchool } from "@fortawesome/free-solid-svg-icons";
 import { faRocketchat, faJava } from "@fortawesome/free-brands-svg-icons";
 
 const projects = [
     {
         id: 1,
-        name: "Scholar App",
+        name: {
+            fr: "Scholar App",
+            en: "Scholar App"
+        },
         image: null,
+        images: imagesPid,
         icon: faSchool,
-        description: "Application de gestion pour une école.",
-        fullDescription: `
-            <p>Scholar App facilite la gestion des élèves, des cours et des examens. Les utilisateurs peuvent être des étudiants, des administrateurs, des professeurs ou du personnel administratif.</p>
-
-            <h2 class='titlefullDesc'>Rôles et Autorisations</h2>
-
-            <p class='subtitle'>Administrateur</p>
-            <p>Gérer les cours (ajouter, modifier, supprimer), gérer les modules, ajouter et gérer les professeurs, gérer les informations des étudiants, gérer les réussites, gérer les inscriptions et mettre à jour ses propres informations.</p>
-
-            <p class='subtitle'>Professeur</p>
-            <p>Modifier les cours, mettre à jour les modules, gérer ses informations, consulter la liste des étudiants, consulter les réussites et consulter certaines inscriptions.</p>
-
-            <p class='subtitle'>Étudiant</p>
-            <p>Consulter la liste des professeurs, mettre à jour ses informations, voir ses résultats et consulter ses inscriptions.</p>
-
-            <p class='subtitle'>Permissions Générales</p>
-            <p>Les pages publiques sont accessibles à tous (ex. : /login, /error) et les utilisateurs connectés peuvent accéder aux pages et mettre à jour leurs informations personnelles.</p>
-
-            <h2 class='titlefullDesc'>Stack complète</h2>
-
-
-             <div class="container">
-        <div class="section">
-            <p class='subtitle'>Front-end</p>
-            <ul class="tech-list">
-                <li class="tech-item">Bootstrap</li>
-                <li class="tech-item">jQuery</li>
-                <li class="tech-item">Thymeleaf</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <p class='subtitle'>Back-end</p>
-            <ul class="tech-list">
-                <li class="tech-item">Spring Boot</li>
-                <li class="tech-item">Hibernate/JPA</li>
-                <li class="tech-item">Spring Security</li>
-                <li class="tech-item">H2</li>
-                <li class="tech-item">Lombok</li>
-            </ul>
-        </div>
-    </div>
-                `,
-        stack: ["Java", "Springboot"],
+        description: {
+            fr: "Application de gestion pour une école.",
+            en: "School management application."
+        },
+        fullDescription: {
+            fr: `
+                <p class='textDescModal'>Scholar App aide à gérer les élèves, cours et examens. Administrateurs gèrent les cours, professeurs modifient les cours, et étudiants consultent leurs informations et résultats.</p>
+                <p class='expModal'>Les pages publiques sont accessibles à tous, et les utilisateurs connectés peuvent mettre à jour leurs infos.</p>
+            `,
+            en: `
+                <p class='textDescModal'>Scholar App helps manage students, courses, and exams. Administrators manage courses, professors modify them, and students view their information and results.</p>
+                <p class='expModal'>Public pages are accessible to everyone, and logged-in users can update their information.</p>
+            `
+        },
+        fullStack: {
+            fr: `
+                <div class="container">
+                    <div class="sectionStack">
+                        <p class='subtitleModal'>Front-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Bootstrap</li>
+                            <li class="tech-item">jQuery</li>
+                            <li class="tech-item">Thymeleaf</li>
+                        </ul>
+                    </div>
+                    <div class="sectionStack">
+                        <p class='subtitleModal'>Back-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Spring Boot</li>
+                            <li class="tech-item">Hibernate/JPA</li>
+                            <li class="tech-item">Spring Security</li>
+                            <li class="tech-item">H2</li>
+                            <li class="tech-item">Lombok</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            en: `
+                <div class="container">
+                    <div class="sectionStack">
+                        <p class='subtitleModal'>Front-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Bootstrap</li>
+                            <li class="tech-item">jQuery</li>
+                            <li class="tech-item">Thymeleaf</li>
+                        </ul>
+                    </div>
+                    <div class="sectionStack">
+                        <p class='subtitleModal'>Back-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Spring Boot</li>
+                            <li class="tech-item">Hibernate/JPA</li>
+                            <li class="tech-item">Spring Security</li>
+                            <li class="tech-item">H2</li>
+                            <li class="tech-item">Lombok</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        },
+        stack: ["Java", "Springboot"]
     },
     {
         id: 2,
-        name: "Charlie Invoice",
+        name: {
+            fr: "Charlie Invoice",
+            en: "Charlie Invoice"
+        },
         image: reactImage,
         icon: null,
-        description: "Une application qui permet le tri automatiquement des factures.",
-        fullDescription: `
-            <h2 class='titlefullDesc'>Explications</h2>
-            <p>Mon application, Charlie Invoice, a été développée afin de résoudre un problème majeur au sein d'une fiduciaire : le tri manuel des factures.</p>
-            <p>En effet, les clients apportent souvent des factures de manière désorganisée, parfois en doublon, que ce soit en main propre ou via le Fid Manager, une application permettant entre autres de déposer des factures en ligne. Charlie Invoice résout ce problème en triant automatiquement les factures d'une entreprise. Cela permet de simplifier la gestion et de gagner du temps sur le traitement manuel.</p><br/>
-            <p>Elle permet de gérer les fichiers PDF : par exemple, si un PDF contient plusieurs factures, vous pouvez les scinder en documents distincts.</p><br/>
-            <p>Les factures sont ensuite traitées par Azure AI Document Intelligence, qui extrait les informations importantes, ce qui déterminera le type de facture.</p><br/>
-            <p>Ces informations apparaissent dans une liste que le comptable peut ajuster si nécessaire. Une fois validées, les factures sont stockées dans une base de données, renommées, et triées dans deux dossiers distincts : l'un pour conserver toutes les analyses effectuées, et l'autre pour faciliter leur encodage via Winbooks et Virtual Invoice.</p><br/>
-            <h2 class='titlefullDesc'>Stack complète</h2>
-            <div class="container">
-                <div class="section">
-                    <p class='subtitle'>Front-end</p>
-                    <ul class="tech-list">
-                        <li class="tech-item">CSS</li>
-                        <li class="tech-item">JavaScript</li>
-                        <li class="tech-item">JavaFX</li>
-                    </ul>
+        images: images,
+        description: {
+            fr: "Une application qui permet le tri automatiquement des factures.",
+            en: "An application that automatically sorts invoices."
+        },
+        fullDescription: {
+            fr: `
+                <p class='expModal'>Charlie Invoice est une application qui résout le problème du tri manuel des factures dans une fiduciaire, en automatisant leur tri désorganisé, qu'elles soient apportées en main propre ou via Fid Manager.</p>
+                <p class='expModal'>Elle permet de scinder les factures multiples d’un même PDF en documents séparés.</p>
+                <p class='expModal'>Les données importantes des factures sont extraites automatiquement grâce à Azure AI Document Intelligence et sont classées pour déterminer leur type.</p>
+                <p class='expModal'>Le comptable peut ajuster les informations avant validation. Une fois validées, les factures sont stockées, renommées et triées dans des dossiers distincts pour un traitement simplifié avec Winbooks et Virtual Invoice.</p>
+            `,
+            en: `
+                <p class='expModal'>Charlie Invoice is an application that solves the problem of manually sorting invoices in a fiduciary office by automating the disorganized sorting, whether they are brought in person or via Fid Manager.</p>
+                <p class='expModal'>It allows splitting multiple invoices from the same PDF into separate documents.</p>
+                <p class='expModal'>Important invoice data is automatically extracted using Azure AI Document Intelligence and categorized to determine its type.</p>
+                <p class='expModal'>The accountant can adjust the information before validation. Once validated, invoices are stored, renamed, and sorted into separate folders for simplified processing with Winbooks and Virtual Invoice.</p>
+            `
+        },
+        fullStack: {
+            fr: `
+                <div class="container">
+                    <div class="sectionStack">
+                        <p class='subtitle'>Front-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">CSS</li>
+                            <li class="tech-item">JavaScript</li>
+                            <li class="tech-item">JavaFX</li>
+                        </ul>
+                    </div>
+                    <div class="sectionStack">
+                        <p class='subtitle'>Back-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Java</li>
+                            <li class="tech-item">Hibernate/JPA</li>
+                            <li class="tech-item">Maven</li>
+                            <li class="tech-item">H2</li>
+                            <li class="tech-item">Azure AI</li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="section">
-                    <p class='subtitle'>Back-end</p>
-                    <ul class="tech-list">
-                        <li class="tech-item">Java</li>
-                        <li class="tech-item">Hibernate/JPA</li>
-                        <li class="tech-item">Maven</li>
-                        <li class="tech-item">H2</li>
-                        <li class="tech-item">Azure AI</li>
-                    </ul>
+            `,
+            en: `
+                <div class="container">
+                    <div class="sectionStack">
+                        <p class='subtitle'>Front-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">CSS</li>
+                            <li class="tech-item">JavaScript</li>
+                            <li class="tech-item">JavaFX</li>
+                        </ul>
+                    </div>
+                    <div class="sectionStack">
+                        <p class='subtitle'>Back-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Java</li>
+                            <li class="tech-item">Hibernate/JPA</li>
+                            <li class="tech-item">Maven</li>
+                            <li class="tech-item">H2</li>
+                            <li class="tech-item">Azure AI</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        `,
-        stack: ["Java"],
+            `
+        },
+        stack: ["Java"]
     },
     {
         id: 3,
-        name: "IT Logger",
+        name: {
+            fr: "IT Logger",
+            en: "IT Logger"
+        },
         image: null,
         icon: faRocketchat,
-        description: "Application pour suivre les incidents informatiques.",
-        fullDescription: `
-            <p>IT Logger est une application dédiée à la gestion et au suivi des incidents informatiques au sein d'une organisation.</p><br/>
-            <p>Les utilisateurs peuvent signaler des incidents, suivre leur statut et recevoir des notifications lorsque des problèmes sont résolus.</p><br/>
-            <p>Avec une interface utilisateur conviviale, IT Logger permet aux équipes IT de gérer les tickets de manière efficace, améliorant ainsi la satisfaction des utilisateurs.</p><br/>
-            <p>L'application est construite sur la pile MERN, offrant une expérience fluide tant pour les utilisateurs que pour les administrateurs.</p>
-        `,
-        stack: ["MERN"],
-    }
+        images: images,
+        description: {
+            fr: "Application pour suivre les incidents informatiques.",
+            en: "Application for tracking IT incidents."
+        },
+        fullDescription: {
+            fr: `
+                <p class='expModal'>IT Logger est une application dédiée à la gestion et au suivi des incidents informatiques au sein d'une organisation.</p>
+                <p class='expModal'>Les utilisateurs peuvent signaler des incidents, suivre leur statut et recevoir des notifications lorsque des problèmes sont résolus.</p>
+                <p class='expModal'>Avec une interface utilisateur conviviale, IT Logger permet aux équipes IT de gérer les tickets de manière efficace, améliorant ainsi la satisfaction des utilisateurs.</p>
+                <p class='expModal'>L'application est construite sur la pile MERN, offrant une expérience fluide tant pour les utilisateurs que pour les administrateurs.</p>
+            `,
+            en: `
+                <p class='expModal'>IT Logger is an application dedicated to managing and tracking IT incidents within an organization.</p>
+                <p class='expModal'>Users can report incidents, track their status, and receive notifications when issues are resolved.</p>
+                <p class='expModal'>With a user-friendly interface, IT Logger helps IT teams manage tickets efficiently, thus improving user satisfaction.</p>
+                <p class='expModal'>The app is built on the MERN stack, providing a smooth experience for both users and administrators.</p>
+            `
+        },
+        fullStack: {
+            fr: `
+                <div class="container">
+                    <div class="sectionStack">
+                        <p class='subtitle'>Front-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">React</li>
+                        </ul>
+                    </div>
+                    <div class="sectionStack">
+                        <p class='subtitle'>Back-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Node.js</li>
+                            <li class="tech-item">Express.js</li>
+                            <li class="tech-item">MongoDB</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            en: `
+                <div class="container">
+                    <div class="sectionStack">
+                        <p class='subtitle'>Front-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">React</li>
+                        </ul>
+                    </div>
+                    <div class="sectionStack">
+                        <p class='subtitle'>Back-end</p>
+                        <ul class="tech-list">
+                            <li class="tech-item">Node.js</li>
+                            <li class="tech-item">Express.js</li>
+                            <li class="tech-item">MongoDB</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        },
+        stack: ["React", "Node.js", "MongoDB"]
+    },
 ];
 
 export default projects;

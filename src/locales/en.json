@@ -1,0 +1,72 @@
+{
+  "landing": {
+    "intro": "Hi there, I'm",
+    "name": "Anthony Panont",
+    "description": "I'm a curious developer who loves to learn new things",
+    "links": {
+      "github": "Github",
+      "freecodecamp": "freeCodeCamp",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "header": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "language": "English"
+  },
+  "about": {
+    "title": "About Me",
+    "greeting": "Hi there!",
+    "intro": "I'm Anthony, a developer recently graduated from ISFCE, ready to take on new challenges. Naturally curious, I enjoy exploring all aspects of development, both in ",
+    "frontend": "front-end",
+    "and": "and",
+    "backend": "back-end",
+    "selfLearningStart": "In addition to my studies, I enriched my skills by taking ",
+    "many": "many",
+    "selfLearningEnd": " online courses, developing a self-taught approach that allows me to keep learning continuously",
+    "eagerToLearn": "Always looking for new knowledge and opportunities to grow, I am excited to join a team where I can bring my passion for development and",
+    "thirstForKnowledge": "my thirst for learning"
+  },
+  "skills": {
+    "title": "My Skills",
+    "frontendBackend": "Front-end / Back-end",
+    "toolstitle": "Tools",
+    "skills": {
+      "Java": "Java",
+      "SpringBoot": "SpringBoot",
+      "React": "React",
+      "NodeJS": "NodeJS",
+      "Docker": "Docker"
+    },
+    "tools": {
+      "VSC": "Visual Studio Code",
+      "Git": "Git",
+      "Postman": "Postman"
+    },
+    "level": {
+      "Intermediate": "Intermediate",
+      "Beginner": "Beginner"
+    },
+    "location": {
+      "ISFCE": "ISFCE",
+      "freeCodeCamp": "freeCodeCamp",
+      "Udemy": "Udemy",
+      "Internship": "Internship"
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "submitText": "Send",
+    "sending": "Sending...",
+    "success": "Message sent, thank you!",
+    "error": "Error!",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message"
+  },
+  "projects": {
+    "title": "My Projects"
+  }
+}

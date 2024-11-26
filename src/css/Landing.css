@@ -76,3 +76,12 @@
   background-color: var(--components-hv);
   outline: none;
 }
+
+@media (max-width: 767px) {
+  #landing {
+    height: 100vh;
+  }
+  .button {
+    padding: 10px;
+  }
+}
