@@ -1,10 +1,16 @@
 import "../css/carousel.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
+import { faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 pour avancer, -1 pour reculer
 
   useEffect(() => {
     if (!autoPlay) return;
@@ -17,18 +23,20 @@ function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
   }, [currentIndex, autoPlay, autoPlayInterval]);
 
   const nextImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1,
-    );
+    setDirection(1);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const prevImage = () => {
+    setDirection(-1);
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1,
     );
   };
 
   const goToImage = (index) => {
+    const newDirection = index > currentIndex ? 1 : -1;
+    setDirection(newDirection);
     setCurrentIndex(index);
   };
 
@@ -36,22 +44,57 @@ function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
     setIsFullscreen(!isFullscreen);
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+
+    if (touchStartX - touchEndX > 50) {
+      // Swipe left
+      nextImage();
+    } else if (touchEndX - touchStartX > 50) {
+      // Swipe right
+      prevImage();
+    }
+  };
+
+  const slideVariants = {
+    enter: (custom) => ({
+      opacity: 0,
+      x: custom === 1 ? 100 : -100,
+    }),
+    center: {
+      opacity: 1,
+      x: 0,
+    },
+    exit: (custom) => ({
+      opacity: 0,
+      x: custom === 1 ? -100 : 100,
+    }),
+  };
   return (
     <>
-      <div className="carousel">
+      <div
+        className="carousel"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <button className="carousel-button prev" onClick={prevImage}>
           ◀
         </button>
         <div className="carousel-window">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.img
               key={images[currentIndex]}
               src={images[currentIndex]}
               alt={`Slide ${currentIndex}`}
               className="carousel-image"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
               transition={{ duration: 0.5 }}
             />
           </AnimatePresence>
@@ -71,7 +114,10 @@ function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
         </div>
 
         <button className="fullscreen-button" onClick={toggleFullscreen}>
-          Fullscreen
+          <FontAwesomeIcon
+            className="expicn"
+            icon={faUpRightAndDownLeftFromCenter}
+          />
         </button>
       </div>
 
@@ -82,6 +128,8 @@ function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
           </button>
           <div
             className="fullscreen-carousel"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -91,15 +139,17 @@ function Carousel({ images, autoPlay = true, autoPlayInterval = 3000 }) {
               ◀
             </button>
             <div className="carousel-window fullscreen-window">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" custom={direction}>
                 <motion.img
                   key={images[currentIndex]}
                   src={images[currentIndex]}
                   alt={`Slide ${currentIndex}`}
                   className="carousel-image"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
                   transition={{ duration: 0.5 }}
                 />
               </AnimatePresence>

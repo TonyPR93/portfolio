@@ -108,3 +108,20 @@
 .dot.active {
   background-color: var(--text-hc);
 }
+
+.fullscreen-button {
+  position: absolute;
+  bottom: 0px;
+  right: 33px;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  padding: 0.2rem;
+}
+.fullscreen-button:hover {
+  background-color: transparent;
+}
+
+.expicn {
+  font-size: 1.5rem;
+}
