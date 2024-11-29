@@ -68,7 +68,7 @@ function Landing() {
             {t("landing.links.codepen")}
           </a>
         </motion.div>
-        <motion.div
+        {/* <motion.div
           className="button-container"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ function Landing() {
           <a href="/cv.pdf" download="Anthony_CV.pdf" className="button">
             {t("landing.links.download")}
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

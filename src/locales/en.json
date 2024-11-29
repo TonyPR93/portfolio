@@ -13,6 +13,7 @@
   },
   "header": {
     "home": "Home",
+    "about": "About me",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
@@ -69,6 +70,7 @@
     "message": "Message"
   },
   "projects": {
-    "title": "My Projects"
+    "title": "My Projects",
+    "subtitle": "Check out more of my work here: "
   }
 }

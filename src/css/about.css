@@ -30,12 +30,28 @@
   font-weight: 500;
   font-style: italic;
 }
-
+#about .content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 @media (max-width: 767px) {
   #about {
     height: 100vh;
   }
   #about p {
     line-height: 1.5rem;
+  }
+}
+@media (max-height: 933px) {
+  #about {
+    justify-content: space-evenly;
+  }
+}
+@media (max-height: 762px) {
+  #about {
+    justify-content: center;
   }
 }

@@ -1,10 +1,11 @@
 {
   "header": {
     "home": "Accueil",
+    "about": "A propos",
     "projects": "Projets",
     "skills": "Compétences",
     "contact": "Contact",
-    "language": "Francais"
+    "language": "Français"
   },
   "landing": {
     "intro": "Bonjour, je suis",
@@ -70,6 +71,7 @@
   },
   "projects": {
     "title": "Mes Projets",
+    "subtitle": "Découvrez plus de mes réalisations ici : ",
     "stack": {
       "html": "HTML",
       "css": "CSS",

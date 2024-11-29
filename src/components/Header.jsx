@@ -34,6 +34,9 @@ function Header() {
               <a href="#landing">{t("header.home")}</a>
             </li>
             <li>
+              <a href="#about">{t("header.about")}</a>
+            </li>
+            <li>
               <a href="#projects">{t("header.projects")}</a>
             </li>
             <li>

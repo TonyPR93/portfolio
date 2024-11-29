@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import "../css/contact.css";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Contact() {
   const { t } = useTranslation();
@@ -18,6 +20,8 @@ function Contact() {
     email: false,
     message: false,
   });
+  const [loading, setLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(null);
 
   const handleFocus = (e) => {
     setIsFocused((prev) => ({ ...prev, [e.target.name]: true }));
@@ -34,17 +38,36 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitText(t("contact.sending"));
+    setLoading(true);
+    setIsSuccess(null);
 
-    emailjs.sendForm(serviceId, templateId, formRef.current).then(
-      () => {
-        setSubmitText(t("contact.success"));
-        formRef.current.reset();
-      },
-      (error) => {
-        console.error("Erreur :", error);
-        setSubmitText(t("contact.error"));
-      },
-    );
+    emailjs
+      .sendForm(serviceId, templateId, formRef.current)
+      .then(
+        () => {
+          setSubmitText(t("contact.success"));
+          setIsSuccess(true);
+          formRef.current.reset();
+
+          setTimeout(() => {
+            setSubmitText(t("contact.submitText"));
+            setIsSuccess(null);
+          }, 3000);
+        },
+        (error) => {
+          console.error("Erreur :", error);
+          setSubmitText(t("contact.error"));
+          setIsSuccess(false);
+
+          setTimeout(() => {
+            setSubmitText(t("contact.submitText"));
+            setIsSuccess(null);
+          }, 3000);
+        },
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -148,7 +171,33 @@ function Contact() {
             required
           />
           <div className="subBtn">
-            <button type="submit">{submitText}</button>
+            <motion.button type="submit">
+              <motion.div
+                key={
+                  loading
+                    ? "loading"
+                    : isSuccess === null
+                    ? "initial"
+                    : isSuccess
+                    ? "success"
+                    : "error"
+                }
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {loading ? (
+                  <FontAwesomeIcon icon={faSpinner} spin />
+                ) : isSuccess === null ? (
+                  submitText
+                ) : isSuccess ? (
+                  <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
+                ) : (
+                  <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} />
+                )}
+              </motion.div>
+            </motion.button>
           </div>
         </form>
       </div>

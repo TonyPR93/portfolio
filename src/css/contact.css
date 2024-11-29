@@ -124,6 +124,9 @@ input:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 @media (max-width: 767px) {
+  #contact {
+    min-height: 80vh;
+  }
   #contact form {
     width: 80%;
   }

@@ -21,6 +21,7 @@ function Projects() {
   return (
     <section id="projects">
       <h2 className="titleIntro">{t("projects.title")}</h2>
+
       <div className="projects-container">
         {projects.map((project, index) => {
           const ref = React.useRef(null);
@@ -65,7 +66,33 @@ function Projects() {
           );
         })}
       </div>
-
+      <p className="titleIntroP">
+        {t("projects.subtitle")}
+        <a
+          href="https://github.com/TonyPR93/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.freecodecamp.org/fcc54dc0c4c-4654-4716-9a4b-fc304164949c"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          FreeCodeCamp
+        </a>
+        ,&nbsp;
+        <a
+          href="https://codepen.io/TonyPR"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CodePen
+        </a>
+        .
+      </p>
       {/* Modal */}
       {selectedProject && (
         <div className="modal-overlay">

@@ -120,7 +120,6 @@ function Skills() {
   const skillRefs = skills.map(() => useRef(null));
   const toolRefs = tools.map(() => useRef(null));
 
-  console.log(isDarkMode);
   return (
     <section id="skills">
       <h2>{t("skills.title")}</h2>

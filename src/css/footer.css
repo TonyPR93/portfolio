@@ -1,3 +1,29 @@
 .footer {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer p {
+  color: var(--text-hc);
+  padding: 1rem;
+}
+
+.social-icons {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.icnfooter {
+  color: var(--text-hc);
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  .social-icons {
+    width: 100%;
+  }
 }

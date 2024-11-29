@@ -117,6 +117,7 @@
   height: auto;
   background-color: transparent;
   padding: 0.2rem;
+  border: none;
 }
 .fullscreen-button:hover {
   background-color: transparent;
@@ -124,4 +125,21 @@
 
 .expicn {
   font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .fullscreen-button {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: none;
+  }
+  .expicn {
+    font-size: 10px;
+  }
+  .svg-inline--fa {
+    /* display: var(--fa-display, inline-block);
+    height: auto;
+    overflow: visible;
+    vertical-align: 0; */
+  }
 }
