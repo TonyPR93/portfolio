@@ -74,10 +74,6 @@ function Contact() {
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
-  console.log(publicKey);
-  console.log(serviceId);
-  console.log(templateId);
-
   emailjs.init(publicKey);
 
   return (
