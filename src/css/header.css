@@ -10,10 +10,8 @@ header {
 
 .barProgress {
   background-color: var(--text-hc);
-
   position: sticky;
   top: 0;
-  width: 100vw;
   height: 5px;
   transform-origin: left;
   z-index: 11;

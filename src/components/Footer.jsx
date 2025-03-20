@@ -11,7 +11,7 @@ import "../css/footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2024 Panont Anthony</p>
+      <p>© {new Date().getFullYear()} Panont Anthony</p>
       <div className="social-icons">
         <a
           href="https://github.com/TonyPR93/"
